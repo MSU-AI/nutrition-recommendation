@@ -1,1 +1,1 @@
-# Nutrition Reccomendation Project - Zaid Qourah
+# Nutrition Reccomendation Project
