@@ -1,5 +1,7 @@
 import React from 'react';
 import Nav from '../components/Nav';
+import LoginForm from '../components/Login';
+
 
 function Home() {
     return (
@@ -8,6 +10,7 @@ function Home() {
             <header>
                 <h1>Welcome to our Nutrition App!</h1>
             </header>
+            <LoginForm />
             <main>
                 <section>
                     <h2>About Us</h2>
