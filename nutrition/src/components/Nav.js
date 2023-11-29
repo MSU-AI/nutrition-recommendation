@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import AuthWrapper from './AuthWrapper';
 
 const Nav = () => {
   return (
@@ -16,6 +17,9 @@ const Nav = () => {
         </li>
         <li>
           <Link to="/profile">Profile</Link>
+        </li>
+        <li>
+          <AuthWrapper />
         </li>
       </ul>
     </nav>
