@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import AuthWrapper from './AuthWrapper';
+import { useAuth } from './AuthContext';
 
 const Nav = () => {
+  const { currentUser } = useAuth();
+
   return (
     <nav>
       <ul>
@@ -17,8 +21,15 @@ const Nav = () => {
         <li>
           <Link to="/profile">Profile</Link>
         </li>
+        {!currentUser && (
+          <li>
+            <Link to="/register">Register</Link>
+          </li>
+        )}
+        <li>
+          <AuthWrapper />
+        </li>
       </ul>
-      <button>Login</button>
     </nav>
   );
 };
