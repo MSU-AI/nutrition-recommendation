@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Chat from './pages/Chat';
 import Features from './pages/Features';
 import Profile from './pages/Profile';
+import RegistrationPage from './pages/Registration';
 
 import { initializeApp } from 'firebase/app';
 import { AuthProvider } from './components/AuthContext';
@@ -30,6 +31,7 @@ function App() {
               <Route path="/chat" element={<Chat />} />
               <Route path="/features" element={<Features />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/register" element={<RegistrationPage />} />
             </Routes>
         </div>
       </Router>

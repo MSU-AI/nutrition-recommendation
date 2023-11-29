@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
+      if (user && user.emailVerified) {
         user.getIdToken().then(setAuthToken);
         setCurrentUser(user);
       } else {

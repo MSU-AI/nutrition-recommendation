@@ -6,6 +6,8 @@ import LogoutButton from './Logout';
 const AuthWrapper = () => {
   const { currentUser } = useAuth();
 
+  console.log("Current user in AuthWrapper:", currentUser);
+
   return (
     <div>
       {currentUser ? <LogoutButton /> : <LoginForm />}
