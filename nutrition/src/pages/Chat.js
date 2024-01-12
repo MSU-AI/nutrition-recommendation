@@ -9,26 +9,39 @@ const Chat = () => {
     setUserInput(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    fetch('YOUR_API_ENDPOINT', {
-      method: 'POST',
-      body: JSON.stringify({ message: userInput }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setChatHistory((prevChatHistory) => [
-          ...prevChatHistory,
-          { user: userInput, bot: data.response },
-        ]);
-        setUserInput('');
-      })
-      .catch((error) => {
-        console.error('Error:', error);
+    const openAiEndpoint = "https://api.openai.com/v1/chat/completions";
+    const apiKey = process.env.REACT_APP_OPENAI_API_KEY; // Ensure this is set in your .env file
+
+    const requestBody = {
+      model: "gpt-3.5-turbo",
+      messages: [{ role: "user", content: userInput }],
+      temperature: 0.7
+    };
+
+    try {
+      const response = await fetch(openAiEndpoint, {
+        method: 'POST',
+        body: JSON.stringify(requestBody),
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${apiKey}`,
+        },
       });
+
+      const data = await response.json();
+      const botResponse = data.choices[0].message.content.trim();
+
+      setChatHistory(prevChatHistory => [
+        ...prevChatHistory,
+        { sender: 'user', content: userInput },
+        { sender: 'bot', content: botResponse },
+      ]);
+      setUserInput('');
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   return (
@@ -38,8 +51,8 @@ const Chat = () => {
         <div className='chat-container'>
           <div className="chat-history">
             {chatHistory.map((message, index) => (
-              <div key={index} className={index % 2 === 0 ? 'user-message' : 'bot-message'}>
-                <div className="message-content">{message.user || message.bot}</div>
+              <div key={index} className={message.sender === 'user' ? 'user-message' : 'bot-message'}>
+                <div className="message-content">{message.content}</div>
               </div>
             ))}
           </div>
