@@ -2,7 +2,6 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Chat from './pages/Chat';
-import Features from './pages/Features';
 import Profile from './pages/Profile';
 import RegistrationPage from './pages/Registration';
 
@@ -18,7 +17,7 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_FIREBASE_APP_ID,
   measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
-
+// eslint-disable-next-line
 const app = initializeApp(firebaseConfig);
 
 function App() {
@@ -29,7 +28,6 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/chat" element={<Chat />} />
-              <Route path="/features" element={<Features />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/register" element={<RegistrationPage />} />
             </Routes>
