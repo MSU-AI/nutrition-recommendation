@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import { useAuth } from './AuthContext';    
+import { useAuth } from '../../Auth/AuthContext';    
 
 const LoginForm = ({ onClose }) => {
   const [email, setEmail] = useState('');

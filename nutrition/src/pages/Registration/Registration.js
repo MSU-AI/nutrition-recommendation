@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../components/AuthContext';
-import CreateUserForm from '../components/CreateUser';
+import { useAuth } from '../../Auth/AuthContext';
+import CreateUserForm from '../../components/CreateUser/CreateUser';
 
 const RegistrationPage = () => {
   const { currentUser } = useAuth();

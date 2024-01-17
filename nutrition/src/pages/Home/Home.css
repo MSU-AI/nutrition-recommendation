@@ -1,0 +1,115 @@
+/* Base styles */
+html, body {
+    min-height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: #f8f8f8; /* Light grey background for better contrast with elements */
+    color: #333; /* Darker text color for improved readability */
+    scroll-behavior: smooth;
+  }
+  
+  
+  
+  .section {
+    text-align: center;
+    color: #333; /* Refined text color */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* Modern font stack */
+  }
+  
+  .section h1 {
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+  }
+  
+  .section p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    max-width: 600px; /* Optimal line length for readability */
+    margin: auto; /* Centering the text block */
+  }
+  
+  .section-dark {
+    background: #f8f8f8; /* Light grey background */
+  }
+  
+  .section-darker {
+    background: #f0f0f0;
+  }
+  
+  .section-darkest {
+    background: #000000;
+  }
+  
+  .section-lightest {
+    background: #e0e0e0;
+  }
+  
+  .section-blue {
+    background: #007bff; /* Standard Blue */
+  }
+  
+  .section-light-blue {
+    background: #5bc0de; /* Light Blue */
+  }
+  
+  .section-dark-blue {
+    background: #003366; /* Dark Blue */
+  }
+  
+  .section-navy-blue {
+    background: #000080; /* Navy Blue */
+  }
+  
+  .section-sky-blue {
+    background: #87ceeb; /* Sky Blue */
+  }
+  
+  
+  .section-sky-blue {
+    background: #87ceeb; /* Sky Blue */
+  }
+  
+  .section-grey-ish {
+    background: #D3D3D3;
+      color: #3b3838; /* Default text color for .section-black-ish */
+  }
+  
+  
+  /* Enhancing buttons or links within the section */
+  .section a, .section button {
+    background-color: #000; /* Black button for contrast */
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px; /* Rounded pill shape */
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 20px;
+    font-size: 1em;
+  }
+  
+  .section a:hover, .section button:hover {
+    background-color: #333; /* Dark grey on hover */
+    transform: translateY(-2px);
+  }
+  
+  /* Subtle text shadow for depth */
+  .section * {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  .main-content {
+      padding-top: 80px; /* This value should be at least the height of the navbar plus some extra space for the logo */
+  }
