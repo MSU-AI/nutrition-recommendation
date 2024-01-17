@@ -1,13 +1,13 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import Chat from './pages/ChatTest'; // Changed for testing
-import Profile from './pages/Profile';
-import RegistrationPage from './pages/Registration';
-import LoginPage from './pages/LoginPage';
+import Home from './pages/Home/Home';
+import Chat from './pages/Chat/ChatTest'; // Changed for testing
+import Profile from './pages/Profile/Profile';
+import RegistrationPage from './pages/Registration/Registration';
+import LoginPage from './pages/LoginPage/LoginPage';
 
 import { initializeApp } from 'firebase/app';
-import { AuthProvider } from './components/AuthContext';
+import { AuthProvider } from './Auth/AuthContext';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,

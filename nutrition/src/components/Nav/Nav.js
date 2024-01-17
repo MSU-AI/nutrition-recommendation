@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useAuth } from './AuthContext';
-import Modal from './Modal';
-import LoginPage from '../pages/LoginPage';
-import LogoutButton from './Logout';
+import { useAuth } from '../../Auth/AuthContext';
+import Modal from '../Modal/Modal';
+import LoginPage from '../../pages/LoginPage/LoginPage';
+import LogoutButton from '../Logout/Logout';
+import './Nav.css'
 
 const Nav = () => {
   const { currentUser } = useAuth();
