@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { useAuth } from './AuthContext';    
 
-const LoginForm = () => {
+const LoginForm = ({ onClose }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(''); // State to store error messages
@@ -15,6 +15,7 @@ const LoginForm = () => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
+      onClose();
       
       if (!user.emailVerified) {
         setError('Please verify your email before logging in.');
