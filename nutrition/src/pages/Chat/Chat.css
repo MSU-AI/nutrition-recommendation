@@ -79,3 +79,21 @@
 .chat-history::-webkit-scrollbar-thumb:hover {
     background: #0056b3;
 }
+
+/* Chat Animation */
+.typing-animation span {
+    border-right: 2px solid;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    animation: typing 2s steps(40, end), blink-caret 0.5s step-end infinite alternate;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: max-content; }
+}
+
+@keyframes blink-caret {
+    50% { border-color: transparent; }
+}
