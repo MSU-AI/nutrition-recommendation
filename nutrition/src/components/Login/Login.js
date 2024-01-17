@@ -33,21 +33,23 @@ const LoginForm = ({ onClose }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='login-form' onSubmit={handleSubmit}>
       <input
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="Email"
+        className='email-input'
       />
       <input
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         placeholder="Password"
+        className='password-input'
       />
-      <button type="submit">Login</button>
-      {error && <p style={{ color: 'red' }}>{error}</p>} {/* Display error message */}
+      <button className='login-button' type="submit">Login</button>
+      {error && <p className='login-error'>{error}</p>} {/* Display error message */}
     </form>
   );
 };

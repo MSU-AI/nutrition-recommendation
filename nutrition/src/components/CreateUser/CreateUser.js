@@ -31,23 +31,25 @@ const CreateUserForm = ({ onClose }) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form className='create-form' onSubmit={handleSubmit}>
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
+          className='create-email'
         />
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
+          className='create-password'
         />
-        <button type="submit">Create Account</button>
+        <button className='create-button' type="submit">Create Account</button>
       </form>
       {isVerificationEmailSent && (
-        <p>Please verify your email then proceed to login.</p>
+        <p className='create-error'>Please verify your email then proceed to login.</p>
       )}
     </div>
   );
