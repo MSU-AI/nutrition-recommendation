@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import LoginForm from '../../components/Login/Login';
 import CreateUserForm from '../../components/CreateUser/CreateUser';
+import './LoginPage.css'
 
 const LoginPage = ({ onClose }) => {
   const [showLoginForm, setShowLoginForm] = useState(true);
 
   return (
-    <div>
+    <div className='login-page-div'>
       {showLoginForm ? (
         <>
-          <h2>Sign In</h2>
+          <h2 className='login-page-h2'>Sign In</h2>
           <LoginForm onClose={onClose} />
-          <p>
-            Don't have an account? <button onClick={() => setShowLoginForm(false)}>Register here</button>
+          <p className='login-page-p'>
+            Don't have an account? <button className='login-button' onClick={() => setShowLoginForm(false)}>Register here</button>
           </p>
         </>
       ) : (
@@ -20,7 +21,7 @@ const LoginPage = ({ onClose }) => {
           <h2>Create a New Account</h2>
           <CreateUserForm onClose={onClose} />
           <p>
-            Already have an account? <button onClick={() => setShowLoginForm(true)}>Sign In here</button>
+            Already have an account? <button className='login-button' onClick={() => setShowLoginForm(true)}>Sign In here</button>
           </p>
         </>
       )}

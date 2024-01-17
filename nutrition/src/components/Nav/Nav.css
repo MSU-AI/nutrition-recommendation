@@ -68,3 +68,17 @@
     background-color: rgba(255, 255, 255, 1); /* Or any other color you prefer */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Slightly more pronounced shadow for better visibility */
   }
+
+  .navbar-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px; /* More rounded */
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out; /* Smooth transition */
+    }
+
+    .navbar-button:hover {
+    background-color: #0056b3;
+    }
