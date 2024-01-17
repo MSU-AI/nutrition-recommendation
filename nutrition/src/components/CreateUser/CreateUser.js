@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
+import './CreateUser.css'
 
 const CreateUserForm = ({ onClose }) => {
   const [email, setEmail] = useState('');

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import LoginForm from '../../components/Login/Login';
 import CreateUserForm from '../../components/CreateUser/CreateUser';
+import './LoginPage.css'
 
 const LoginPage = ({ onClose }) => {
   const [showLoginForm, setShowLoginForm] = useState(true);
