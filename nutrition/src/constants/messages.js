@@ -1,0 +1,2 @@
+export const botResponse = "Test message Test message Test message Test message Test message Test message Test message Test message Test message Test message Test message ";
+export const useOpenAPI = false
