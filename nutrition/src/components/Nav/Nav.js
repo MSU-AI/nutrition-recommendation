@@ -49,7 +49,7 @@ const Nav = () => {
           </li>
           {!currentUser ? (
             <li className="navbar-item">
-              <button onClick={openLoginModal} className="navbar-link">Sign In</button>
+              <button onClick={openLoginModal} className="navbar-button">Sign In</button>
             </li>
           ) : (
             <li className="navbar-item">

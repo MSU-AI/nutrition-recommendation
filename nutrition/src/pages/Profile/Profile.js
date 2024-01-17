@@ -19,24 +19,26 @@ const Profile = () => {
 
   return (
     <div className='Profile'>
-        <Nav />
-      <h1>Profile</h1>
+      <Nav />
+      <div className='main-content'>
+        <h1>Profile</h1>
 
-      {userInfo && (
-        <div>
-          <h2>User Information</h2>
-          <p>Name: {userInfo.name}</p>
-          <p>Email: {userInfo.email}</p>
-          {/* Display other user information */}
-        </div>
-      )}
+        {userInfo && (
+          <div>
+            <h2>User Information</h2>
+            <p>Name: {userInfo.name}</p>
+            <p>Email: {userInfo.email}</p>
+            {/* Display other user information */}
+          </div>
+        )}
 
-      {mealPlan && (
-        <div>
-          <h2>Weekly Meal Plan</h2>
-          {/* Display the weekly meal plan */}
-        </div>
-      )}
+        {mealPlan && (
+          <div>
+            <h2>Weekly Meal Plan</h2>
+            {/* Display the weekly meal plan */}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
