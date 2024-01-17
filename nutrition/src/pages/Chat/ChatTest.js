@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Nav from '../components/Nav';
+import Nav from '../../components/Nav/Nav';
+import './Chat.css'
 
 const Chat = () => {
   const [chatHistory, setChatHistory] = useState([]);

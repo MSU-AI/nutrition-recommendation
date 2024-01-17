@@ -1,6 +1,6 @@
 import React from 'react';
-import Nav from '../components/Nav';
-import '../index.css'; // Adjust the path as needed
+import Nav from '../../components/Nav/Nav';
+import './Home.css';
 
 function Home() {
   return (

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Nav from '../components/Nav';
+import Nav from '../../components/Nav/Nav';
 
 const Profile = () => {
   const [userInfo, setUserInfo] = useState(null);
