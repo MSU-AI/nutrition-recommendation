@@ -124,4 +124,42 @@ html {
   .section * {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
   }
-  
+
+  .feature-icon {
+  width: 160px; /* Adjust the width as needed */
+  height: auto; /* Keep the aspect ratio */
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* creates 2 columns */
+  gap: 40px; /* Adjust the space between grid items */
+  max-width: 1200px; /* Maximum width of the grid */
+  margin: 0 auto; /* Center the grid */
+}
+
+.feature {
+  text-align: center; /* Centering content inside each feature */
+}
+
+.feature-section {
+  text-align: center;
+  padding: 40px 0; /* Adjust the padding to your needs */
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px; /* Adjust to your needs */
+  margin: 0 auto; /* This centers the container */
+  padding: 0 15px; /* Padding on the sides */
+}
+
+.feature-text {
+  margin-top: 0; /* Remove top margin to bring text closer to the image */
+  font-size: 1.5em; /* Adjust font size as needed */
+}
+
+.feature-description {
+  margin-top: 5px; /* Reduce space above the description text if needed */
+  font-size: 1em; /* Adjust font size as needed */
+}
