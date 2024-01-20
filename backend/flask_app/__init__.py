@@ -10,7 +10,7 @@ migrate = Migrate()
 
 def create_app():
     app = Flask(__name__)
-    api = Api(app, doc='/api/docs', title='My API', version='1.0', description='A simple API')
+    api = Api(app, doc='/api/docs', title='Nutrition App API', version='1.0', description='An API for the nutrition App')
 
     app.config['SQLALCHEMY_DATABASE_URI'] = ENV_VARS['DATABASE_URI']
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
