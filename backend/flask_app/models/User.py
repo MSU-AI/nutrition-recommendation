@@ -15,3 +15,29 @@ class User(db.Model):
 
     def __repr__(self):
         return f'<User {self.name}>'
+    
+    @classmethod
+    def create_user(cls, data):
+        new_user = cls()
+        for key, value in data.items():
+            if hasattr(new_user, key):
+                setattr(new_user, key, value)
+        db.session.add(new_user)
+        db.session.commit()
+        return new_user
+
+    @classmethod
+    def delete_user(cls, firebase_uuid):
+        user = cls.query.filter_by(firebase_uuid=firebase_uuid).first()
+        if user:
+            db.session.delete(user)
+            db.session.commit()
+            return True
+        return False
+
+    @classmethod
+    def update_user(cls, user, updates):
+        for key, value in updates.items():
+            if hasattr(user, key):
+                setattr(user, key, value)
+        db.session.commit()

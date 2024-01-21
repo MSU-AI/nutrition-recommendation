@@ -6,40 +6,55 @@ import uuid
 
 api = Namespace('users', description='User related operations')
 
+# Model for input (POST/PUT requests)
 user_model = api.model('User', {
-    'name': fields.String(required=True, description='The user name'),
-    'firebase_uuid': fields.String(required=True, description='The user Firebase UUID')
+    'name': fields.String(description='The user name'),
+    'is_admin': fields.Boolean(description='Indicates if the user is an administrator', required=True),
+    'email': fields.String(description='The email of the user'),
+    'profile_image_url': fields.String(description='URL of the user\'s profile image'),
+    'bio': fields.String(description='The user\'s biography'),
+    'active': fields.Boolean(description='Indicates if the user account is active')
+})
+
+# Model for output (GET responses)
+user_output_model = api.inherit('UserOutput', user_model, {
+    'firebase_uuid': fields.String(description='The user Firebase UUID'),
+    'created_at': fields.DateTime(description='The date and time the user was created'),
+    'last_login': fields.DateTime(description='The date and time of the last login')
 })
 
 @api.route('/')
 class UserList(Resource):
-    @api.marshal_list_with(user_model)
+    @api.marshal_list_with(user_output_model)
     def get(self):
         users = User.query.all()
         return users
 
+@api.route('/<string:firebase_uuid>')
+@api.response(404, 'User not found')
+class UserResource(Resource):
+    @api.marshal_with(user_output_model)
+    def get(self, firebase_uuid):
+        user = User.query.filter_by(firebase_uuid=firebase_uuid).first_or_404()
+        return user
+    
     @api.expect(user_model)
-    def post(self):
+    def post(self, firebase_uuid):
         data = request.json
-        user = User(name=data['name'], firebase_uuid=data['firebase_uuid'])
-        db.session.add(user)
-        db.session.commit()
-        return {'message': 'User created successfully.'}, 201
+        data["firebase_uuid"] = firebase_uuid
+        user = User.create_user(data)
+        return {'message': 'User created successfully.', 'user': user.name}, 201
 
     @api.expect(user_model)
-    def delete(self):
+    def put(self, firebase_uuid):
         data = request.json
-        firebase_uuid = data.get('firebase_uuid')
         user = User.query.filter_by(firebase_uuid=firebase_uuid).first_or_404()
-        db.session.delete(user)
-        db.session.commit()
-        return {'message': 'User deleted successfully.'}, 200
-
-    @api.expect(user_model)
-    def put(self):
-        data = request.json
-        firebase_uuid = data.get('firebase_uuid')
-        user = User.query.filter_by(firebase_uuid=firebase_uuid).first_or_404()
-        user.name = data.get('name', user.name)
-        db.session.commit()
+        User.update_user(user, data)
         return {'message': 'User updated successfully.'}, 200
+
+    def delete(self, firebase_uuid):
+        result = User.delete_user(firebase_uuid)
+        if result:
+            return {'message': 'User deleted successfully.'}, 200
+        else:
+            api.abort(404, 'User not found')
