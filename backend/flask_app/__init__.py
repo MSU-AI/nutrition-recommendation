@@ -2,7 +2,7 @@ from flask import Flask
 from flask_restx import Api
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
-from ..env import ENV_VARS
+from .env import ENV_VARS
 from .routes.setup import init_api
 
 db = SQLAlchemy()
