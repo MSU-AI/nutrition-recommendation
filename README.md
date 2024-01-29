@@ -1,1 +1,1 @@
-# Nutrition Reccomendation Project
+# Nutrition Recommendation Project
